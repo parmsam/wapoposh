@@ -29,18 +29,26 @@ devtools::install_github("parmsam/wapoposh")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to interact with the dataset:
 
 ```{r example, message = FALSE}
 library(wapoposh)
 library(dplyr)
 # basic example code
-tail(policeshootings)
+tail(policeshootings, 4)
 # get latest data
 latest <- latest_data()
-tail(latest)
+tail(latest, 4)
 ```
 
 ```{r glimpse, message = FALSE}
 glimpse(policeshootings)
 ```
+
+## Note
+
+The data is published under an Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
+
+# Credit
+
+Credit goes to the Washington Post research and reporting/database development team for compiling and sharing the dataset on their [Github repo](https://github.com/washingtonpost/data-police-shootings).

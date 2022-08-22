@@ -18,38 +18,35 @@ devtools::install_github("parmsam/wapoposh")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to interact with the
+dataset:
 
 ``` r
 library(wapoposh)
 library(dplyr)
 # basic example code
-tail(policeshootings)
-#> # A tibble: 6 × 17
+tail(policeshootings, 4)
+#> # A tibble: 4 × 17
 #>      id name     date       manne…¹ armed   age gender race  city  state signs…²
 #>   <dbl> <chr>    <date>     <chr>   <chr> <dbl> <chr>  <chr> <chr> <chr> <lgl>  
-#> 1  8334 <NA>     2022-08-12 shot    gun      NA M      <NA>  Appl… WI    FALSE  
-#> 2  8336 Michael… 2022-08-14 shot    Airs…    32 M      <NA>  Wate… IA    FALSE  
-#> 3  8337 Jeremy … 2022-08-15 shot    gun      32 M      <NA>  Miam… FL    FALSE  
-#> 4  8338 <NA>     2022-08-16 shot    gun      NA M      <NA>  Miam… FL    FALSE  
-#> 5  8341 <NA>     2022-08-17 shot    mach…    NA M      <NA>  Los … CA    FALSE  
-#> 6  8340 <NA>     2022-08-18 shot    unkn…    NA M      <NA>  Hous… TX    FALSE  
+#> 1  8337 Jeremy … 2022-08-15 shot    gun      32 M      <NA>  Miam… FL    FALSE  
+#> 2  8338 <NA>     2022-08-16 shot    gun      NA M      <NA>  Miam… FL    FALSE  
+#> 3  8341 <NA>     2022-08-17 shot    mach…    NA M      <NA>  Los … CA    FALSE  
+#> 4  8340 <NA>     2022-08-18 shot    unkn…    NA M      <NA>  Hous… TX    FALSE  
 #> # … with 6 more variables: threat_level <chr>, flee <chr>, body_camera <lgl>,
 #> #   longitude <dbl>, latitude <dbl>, is_geocoding_exact <lgl>, and abbreviated
 #> #   variable names ¹​manner_of_death, ²​signs_of_mental_illness
 # get latest data
 latest <- latest_data()
 #> [1] "No update available. Returning existing package dataset."
-tail(latest)
-#> # A tibble: 6 × 17
+tail(latest, 4)
+#> # A tibble: 4 × 17
 #>      id name     date       manne…¹ armed   age gender race  city  state signs…²
 #>   <dbl> <chr>    <date>     <chr>   <chr> <dbl> <chr>  <chr> <chr> <chr> <lgl>  
-#> 1  8334 <NA>     2022-08-12 shot    gun      NA M      <NA>  Appl… WI    FALSE  
-#> 2  8336 Michael… 2022-08-14 shot    Airs…    32 M      <NA>  Wate… IA    FALSE  
-#> 3  8337 Jeremy … 2022-08-15 shot    gun      32 M      <NA>  Miam… FL    FALSE  
-#> 4  8338 <NA>     2022-08-16 shot    gun      NA M      <NA>  Miam… FL    FALSE  
-#> 5  8341 <NA>     2022-08-17 shot    mach…    NA M      <NA>  Los … CA    FALSE  
-#> 6  8340 <NA>     2022-08-18 shot    unkn…    NA M      <NA>  Hous… TX    FALSE  
+#> 1  8337 Jeremy … 2022-08-15 shot    gun      32 M      <NA>  Miam… FL    FALSE  
+#> 2  8338 <NA>     2022-08-16 shot    gun      NA M      <NA>  Miam… FL    FALSE  
+#> 3  8341 <NA>     2022-08-17 shot    mach…    NA M      <NA>  Los … CA    FALSE  
+#> 4  8340 <NA>     2022-08-18 shot    unkn…    NA M      <NA>  Hous… TX    FALSE  
 #> # … with 6 more variables: threat_level <chr>, flee <chr>, body_camera <lgl>,
 #> #   longitude <dbl>, latitude <dbl>, is_geocoding_exact <lgl>, and abbreviated
 #> #   variable names ¹​manner_of_death, ²​signs_of_mental_illness
@@ -77,3 +74,14 @@ glimpse(policeshootings)
 #> $ latitude                <dbl> 47.247, 45.487, 37.695, 37.763, 40.384, 35.877…
 #> $ is_geocoding_exact      <lgl> TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE…
 ```
+
+## Note
+
+The data is published under an Attribution-NonCommercial-ShareAlike 4.0
+International (CC BY-NC-SA 4.0) license.
+
+# Credit
+
+Credit goes to the Washington Post research and reporting/database
+development team for compiling and sharing the dataset on their [Github
+repo](https://github.com/washingtonpost/data-police-shootings).
