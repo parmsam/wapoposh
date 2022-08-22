@@ -47,8 +47,8 @@ glimpse(policeshootings)
 
 ## Note
 
-The data is published under an Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
+The data was originally published under an Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
 
-# Credit
+## Credit
 
 Credit goes to the Washington Post research and reporting/database development team for compiling and sharing the dataset on their [Github repo](https://github.com/washingtonpost/data-police-shootings).

@@ -77,8 +77,9 @@ glimpse(policeshootings)
 
 ## Note
 
-The data was originally published under an Attribution-NonCommercial-ShareAlike 4.0
-International (CC BY-NC-SA 4.0) license.
+The data was originally published under an
+Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
+license.
 
 ## Credit
 
