@@ -1,13 +1,15 @@
 Package: wapoposh
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Washington Post Police Shooting Dataset
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Sam Parmar
+Maintainer: Sam Parmar <parmartsam@gmail.com>
+Description: Provides Washington Post Police Shootings dataset. Data source: Washington Post Github <https://github.com/washingtonpost/data-police-shootings>.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/parmsam/wapoposh
 BugReports: https://github.com/parmsam/wapoposh/issues
+Depends: 
+    R (>= 2.10)
+RoxygenNote: 7.2.1
