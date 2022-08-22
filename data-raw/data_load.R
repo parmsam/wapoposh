@@ -1,8 +1,10 @@
-## code to prepare `police_shootings` dataset goes here
+# code to prepare `police_shootings` dataset goes here
 gh_url <- "https://raw.githubusercontent.com/washingtonpost/data-police-shootings/master/fatal-police-shootings-data.csv"
-
+# read data from github
 policeshootings <- readr::read_csv(gh_url)
+# data cleaning code here
+policeshootings <- police_shootings %>%
+  # ensure consistent case on manner of death field
+  dplyr::mutate(manner_of_death = stringr::str_to_lower(manner_of_death) )
 
 usethis::use_data(policeshootings, overwrite = TRUE)
-
-# TODO - data cleaning code here
