@@ -31,7 +31,7 @@ devtools::install_github("parmsam/wapoposh")
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example}
+```{r example, message = FALSE}
 library(wapoposh)
 library(dplyr)
 # basic example code
@@ -41,6 +41,6 @@ latest <- latest_data()
 tail(latest)
 ```
 
-```{r glimpse}
+```{r glimpse, message = FALSE}
 glimpse(policeshootings)
 ```

@@ -23,14 +23,6 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 library(wapoposh)
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 # basic example code
 tail(policeshootings)
 #> # A tibble: 6 × 17
