@@ -22,16 +22,15 @@ jobs:
         with:
           r-version: 'release'
 
-      - name: Cache R packages # Cache packages
-        uses: actions/cache@v1
-        with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+      # - name: Cache R packages # Cache packages
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: ${{ env.R_LIBS_USER }}
+      #     key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+      #     restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
-      - name: Install dependencies and run script # Set up renv to install packages
+      - name: Run script # Source data refresh script
         run: |
-          install.packages('usethis')
           source("data-raw/data_refresh.R")
         shell: Rscript {0}
 
