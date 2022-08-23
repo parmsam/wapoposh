@@ -22,13 +22,10 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
-      - name: Install dependencies # Set up renv to install packages
+      - name: Install dependencies and run script # Set up renv to install packages
         run: |
           install.packages('usethis')
-        shell: Rscript {0}
-
-      - name: Generate data # Run the script
-        run: source("data-raw/data_refresh.R")
+          source("data-raw/data_refresh.R")
         shell: Rscript {0}
 
       - name: Commit files # Commit changes
