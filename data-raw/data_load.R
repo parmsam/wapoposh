@@ -11,4 +11,4 @@ policeshootings <- policeshootings %>%
   dplyr::mutate(manner_of_death = stringr::str_to_lower(manner_of_death) )
 
 # usethis::use_data(policeshootings, overwrite = TRUE)
-save(policeshootings,"data/policeshootings.rda" )
+save(policeshootings, file = "data/policeshootings.rda" )
