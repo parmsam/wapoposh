@@ -13,10 +13,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-# wapoposh
+# wapoposh <img src="man/figures/logo.png" align="right" height="139" />
 
 <!-- badges: start -->
 <!-- badges: end -->
+
+Use R to access **Wa**shington **Po**st **Po**lice **Sh**ootings dataset. Provides convenient functions to spend less time data wrangling and more time generating findings.
 
 ## Installation
 
@@ -36,18 +38,30 @@ library(wapoposh)
 library(dplyr)
 # basic example code
 tail(policeshootings, 4)
-# get latest data
-latest <- latest_data()
-tail(latest, 4)
 ```
 
 ```{r glimpse, message = FALSE}
 glimpse(policeshootings)
 ```
 
+You can use `latest_data()` to get the latest dataset from the Washington Post [Github repo](https://github.com/washingtonpost/data-police-shootings). 
+```{r latest, message = FALSE}
+# get latest data
+latest <- latest_data()
+tail(latest, 4)
+```
+
+## Update Frequency 
+
+Note that the repo is scheduled to update the package data on a weekly basis. However, it will require a reinstall to pull the latest processed data (.rda) file. As an alternative, the `latest_data()` function will pull most current public dataset from the Washington Post.
+
 ## Credit
 
 Credit goes to the Washington Post and their research and reporting/database development team for compiling and sharing the dataset on their [Github repo](https://github.com/washingtonpost/data-police-shootings).
+
+Hex icon created using the [hexmake app](https://connect.thinkr.fr/hexmake/) from [ColinFay](https://github.com/ColinFay/hexmake).
+
+<a href="https://www.flaticon.com/free-icons/police" title="police icons">Police icons created by surang - Flaticon</a>
 
 ### Note
 

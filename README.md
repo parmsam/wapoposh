@@ -1,10 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# wapoposh
+# wapoposh <img src="man/figures/logo.png" align="right" height="139" />
 
 <!-- badges: start -->
 <!-- badges: end -->
+
+Use R to access **Wa**shington **Po**st **Po**lice **Sh**ootings
+dataset. Provides convenient functions to spend less time data wrangling
+and more time generating findings.
 
 ## Installation
 
@@ -36,20 +40,6 @@ tail(policeshootings, 4)
 #> # … with 6 more variables: threat_level <chr>, flee <chr>, body_camera <lgl>,
 #> #   longitude <dbl>, latitude <dbl>, is_geocoding_exact <lgl>, and abbreviated
 #> #   variable names ¹​manner_of_death, ²​signs_of_mental_illness
-# get latest data
-latest <- latest_data()
-#> [1] "Update available. Returning latest dataset."
-tail(latest, 4)
-#> # A tibble: 4 × 17
-#>      id name     date       manne…¹ armed   age gender race  city  state signs…²
-#>   <dbl> <chr>    <date>     <chr>   <chr> <dbl> <chr>  <chr> <chr> <chr> <lgl>  
-#> 1  8342 <NA>     2022-08-18 shot    mach…    NA M      <NA>  Sara… FL    FALSE  
-#> 2  8344 Otis Fr… 2022-08-20 shot    Taser    NA M      <NA>  Bay … AL    FALSE  
-#> 3  8345 <NA>     2022-08-20 shot    unde…    NA M      <NA>  Tucs… AZ    FALSE  
-#> 4  8343 <NA>     2022-08-21 shot    vehi…    NA <NA>   <NA>  Gree… NC    FALSE  
-#> # … with 6 more variables: threat_level <chr>, flee <chr>, body_camera <lgl>,
-#> #   longitude <dbl>, latitude <dbl>, is_geocoding_exact <lgl>, and abbreviated
-#> #   variable names ¹​manner_of_death, ²​signs_of_mental_illness
 ```
 
 ``` r
@@ -75,12 +65,47 @@ glimpse(policeshootings)
 #> $ is_geocoding_exact      <lgl> TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE…
 ```
 
+You can use `latest_data()` to get the latest dataset from the
+Washington Post [Github
+repo](https://github.com/washingtonpost/data-police-shootings).
+
+``` r
+# get latest data
+latest <- latest_data()
+#> [1] "Update available. Returning latest dataset."
+tail(latest, 4)
+#> # A tibble: 4 × 17
+#>      id name     date       manne…¹ armed   age gender race  city  state signs…²
+#>   <dbl> <chr>    <date>     <chr>   <chr> <dbl> <chr>  <chr> <chr> <chr> <lgl>  
+#> 1  8342 Tyler C… 2022-08-18 shot    mach…    29 M      <NA>  Sara… FL    FALSE  
+#> 2  8344 Otis Fr… 2022-08-20 shot    Taser    NA M      <NA>  Bay … AL    FALSE  
+#> 3  8345 <NA>     2022-08-20 shot    unde…    NA M      <NA>  Tucs… AZ    FALSE  
+#> 4  8343 <NA>     2022-08-21 shot    vehi…    17 <NA>   <NA>  Gree… NC    FALSE  
+#> # … with 6 more variables: threat_level <chr>, flee <chr>, body_camera <lgl>,
+#> #   longitude <dbl>, latitude <dbl>, is_geocoding_exact <lgl>, and abbreviated
+#> #   variable names ¹​manner_of_death, ²​signs_of_mental_illness
+```
+
+## Update Frequency
+
+Note that the repo is scheduled to update the package data on a weekly
+basis. However, it will require a reinstall to pull the latest processed
+data (.rda) file. As an alternative, the `latest_data()` function will
+pull most current public dataset from the Washington Post.
+
 ## Credit
 
 Credit goes to the Washington Post and their research and
 reporting/database development team for compiling and sharing the
 dataset on their [Github
 repo](https://github.com/washingtonpost/data-police-shootings).
+
+Hex icon created using the [hexmake
+app](https://connect.thinkr.fr/hexmake/) from
+[ColinFay](https://github.com/ColinFay/hexmake).
+
+<a href="https://www.flaticon.com/free-icons/police" title="police icons">Police
+icons created by surang - Flaticon</a>
 
 ### Note
 
