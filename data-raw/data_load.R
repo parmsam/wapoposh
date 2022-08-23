@@ -3,6 +3,8 @@
 data_path <- "data-raw/fatal-police-shootings-data.csv"
 # read data from github
 policeshootings <- readr::read_csv(data_path)
+# ensure access to pipe
+`%>%` <- magrittr::`%>%`
 # data cleaning code here
 policeshootings <- policeshootings %>%
   # ensure consistent case on manner of death field
