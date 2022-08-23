@@ -1,5 +1,8 @@
 name: refresh_data
 on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
   schedule:
     - cron: "0 * * * *" # Run every hour
 
