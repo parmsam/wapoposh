@@ -36,10 +36,10 @@ jobs:
 
       - name: Run data_load script # Source data load script
         run: |
-          install.packges("dplyr")
-          install.packges("readr")
-          install.packges("stringr")
-          install.packges("usethis")
+          install.packages("dplyr")
+          install.packages("readr")
+          install.packages("stringr")
+          install.packages("usethis")
           source("data-raw/data_load.R")
         shell: Rscript {0}
 
