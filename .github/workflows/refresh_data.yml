@@ -21,16 +21,12 @@ jobs:
           remotes::install_github("rstudio/renv")
         shell: Rscript {0}
 
-      - uses: actions/cache@v2 # Cache packages so won't be compiled everytime job is run
+      - name: Cache R packages # Cache packages
+        uses: actions/cache@v2
         with:
-          path: ~/.local/share/renv
-          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-renv-
-
-      - name: Install dependencies # Install the package dependencies
-        run: renv::restore()
-        shell: Rscript {0}
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
       - name: Generate data # Run the script
         run: source("data-raw/data_refresh.R")
