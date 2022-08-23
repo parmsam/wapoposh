@@ -39,6 +39,7 @@ jobs:
           install.packages("dplyr")
           install.packages("readr")
           install.packages("stringr")
+          install.packages("magrittr")
           source("data-raw/data_load.R")
         shell: Rscript {0}
 
