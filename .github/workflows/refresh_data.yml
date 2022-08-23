@@ -9,6 +9,13 @@ on:
 jobs:
   generate-data:
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {os: ubuntu-latest,   r: 'release'}
+
     steps:
       - uses: actions/checkout@v2 # Checkout branch into the runner
       - uses: r-lib/actions/setup-r@master # Set up R runtime
