@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
   schedule:
-    - cron: "0 * * * *" # Run every hour
+    - cron: "30 3 * * Mon"
 
 jobs:
   generate-data:
@@ -34,14 +34,14 @@ jobs:
           source("data-raw/data_refresh.R")
         shell: Rscript {0}
 
-      - name: Run data_load script # Source data load script
-        run: |
-          install.packages("dplyr")
-          install.packages("readr")
-          install.packages("stringr")
-          install.packages("usethis")
-          source("data-raw/data_load.R")
-        shell: Rscript {0}
+      # - name: Run data_load script # Source data load script
+      #   run: |
+      #     install.packages("dplyr")
+      #     install.packages("readr")
+      #     install.packages("stringr")
+      #     install.packages("usethis")
+      #     source("data-raw/data_load.R")
+      #   shell: Rscript {0}
 
       - name: Commit files # Commit changes
         run: |
