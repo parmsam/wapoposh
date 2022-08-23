@@ -45,10 +45,10 @@ tail(latest, 4)
 glimpse(policeshootings)
 ```
 
-## Note
-
-The data was originally published under an Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
-
 ## Credit
 
-Credit goes to the Washington Post research and reporting/database development team for compiling and sharing the dataset on their [Github repo](https://github.com/washingtonpost/data-police-shootings).
+Credit goes to the Washington Post and their research and reporting/database development team for compiling and sharing the dataset on their [Github repo](https://github.com/washingtonpost/data-police-shootings).
+
+### Note
+
+The data was originally published under an Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.

@@ -20,4 +20,5 @@ Imports:
     stringr,
     tibble,
     testthat,
+    rlang
 Config/testthat/edition: 3

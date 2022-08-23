@@ -1,0 +1,43 @@
+name: refresh_data
+on:
+  schedule:
+    - cron: "0 * * * *" # Run every hour
+    # - cron: "13 0 */7 * *" # Run every 7 days at 12:15 AM
+
+jobs:
+  generate-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 # Checkout branch into the runner
+      - uses: r-lib/actions/setup-r@master # Set up R runtime
+        with:
+          r-version: 'release'
+
+      - name: Setup renv # Set up renv to install packages
+        run: |
+          install.packages('remotes')
+          remotes::install_github("rstudio/renv")
+        shell: Rscript {0}
+
+      - uses: actions/cache@v2 # Cache packages so won't be compiled everytime job is run
+        with:
+          path: ~/.local/share/renv
+          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-renv-
+
+      - name: Install dependencies # Install the package dependencies
+        run: renv::restore()
+        shell: Rscript {0}
+
+      - name: Generate data # Run the script
+        run: source("data-raw/data_refresh.R")
+        shell: Rscript {0}
+
+      - name: Commit files # Commit changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add --all
+          git commit -m "refresh data"
+          git push
