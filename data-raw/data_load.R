@@ -4,8 +4,9 @@ data_path <- "data-raw/fatal-police-shootings-data.csv"
 # read data from github
 policeshootings <- readr::read_csv(data_path)
 # data cleaning code here
-policeshootings <- police_shootings %>%
+policeshootings <- policeshootings %>%
   # ensure consistent case on manner of death field
   dplyr::mutate(manner_of_death = stringr::str_to_lower(manner_of_death) )
 
-usethis::use_data(policeshootings, overwrite = TRUE)
+# usethis::use_data(policeshootings, overwrite = TRUE)
+save(policeshootings,"data/policeshootings.rda" )
