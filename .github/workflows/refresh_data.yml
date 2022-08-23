@@ -2,7 +2,6 @@ name: refresh_data
 on:
   schedule:
     - cron: "0 * * * *" # Run every hour
-    # - cron: "13 0 */7 * *" # Run every 7 days at 12:15 AM
 
 jobs:
   generate-data:
