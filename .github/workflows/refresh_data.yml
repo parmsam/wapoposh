@@ -17,8 +17,7 @@ jobs:
 
       - name: Setup renv # Set up renv to install packages
         run: |
-          install.packages('remotes')
-          remotes::install_github("rstudio/renv")
+          install.packages('usethis')
         shell: Rscript {0}
 
       - name: Cache R packages # Cache packages
