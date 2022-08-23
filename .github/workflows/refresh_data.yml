@@ -15,17 +15,17 @@ jobs:
         with:
           r-version: 'release'
 
-      - name: Setup renv # Set up renv to install packages
-        run: |
-          install.packages('usethis')
-        shell: Rscript {0}
-
       - name: Cache R packages # Cache packages
-        uses: actions/cache@v2
+        uses: actions/cache@v1
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+
+      - name: Install dependencies # Set up renv to install packages
+        run: |
+          install.packages('usethis')
+        shell: Rscript {0}
 
       - name: Generate data # Run the script
         run: source("data-raw/data_refresh.R")
