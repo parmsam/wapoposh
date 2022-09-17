@@ -35,10 +35,10 @@ tail(policeshootings, 4)
 #> # A tibble: 4 × 17
 #>      id name     date       manne…¹ armed   age gender race  city  state signs…²
 #>   <dbl> <chr>    <date>     <chr>   <chr> <dbl> <chr>  <chr> <chr> <chr> <lgl>  
-#> 1  8337 Jeremy … 2022-08-15 shot    gun      32 M      <NA>  Miam… FL    FALSE  
-#> 2  8338 <NA>     2022-08-16 shot    gun      NA M      <NA>  Miam… FL    FALSE  
-#> 3  8341 <NA>     2022-08-17 shot    mach…    NA M      <NA>  Los … CA    FALSE  
-#> 4  8340 <NA>     2022-08-18 shot    unkn…    NA M      <NA>  Hous… TX    FALSE  
+#> 1  8399 <NA>     2022-09-07 shot    gun      NA M      W     Spri… AL    FALSE  
+#> 2  8401 <NA>     2022-09-07 shot    knife    61 M      B     St. … MO    FALSE  
+#> 3  8402 Tyler M… 2022-09-07 shot    gun      27 M      <NA>  Wash… TN    FALSE  
+#> 4  8406 Reginal… 2022-09-07 shot    gun      30 M      <NA>  Colu… GA    FALSE  
 #> # … with 6 more variables: threat_level <chr>, flee <chr>, body_camera <lgl>,
 #> #   longitude <dbl>, latitude <dbl>, is_geocoding_exact <lgl>, and abbreviated
 #> #   variable names ¹​manner_of_death, ²​signs_of_mental_illness
@@ -46,7 +46,7 @@ tail(policeshootings, 4)
 
 ``` r
 glimpse(policeshootings)
-#> Rows: 7,666
+#> Rows: 7,729
 #> Columns: 17
 #> $ id                      <dbl> 3, 4, 5, 8, 9, 11, 13, 15, 16, 17, 19, 21, 22,…
 #> $ name                    <chr> "Tim Elliot", "Lewis Lee Lembke", "John Paul Q…
@@ -114,3 +114,10 @@ icons created by surang - Flaticon</a>
 The data was originally published under an
 Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 license.
+
+## Code of Conduct
+
+Please note that the wapoposh project is released with a [Contributor
+Code of
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.

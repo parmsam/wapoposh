@@ -22,3 +22,7 @@ Imports:
     testthat,
     rlang
 Config/testthat/edition: 3
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

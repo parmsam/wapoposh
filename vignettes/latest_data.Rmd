@@ -1,0 +1,29 @@
+---
+title: "Get latest data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{latest_data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This vignette is meant for those who want to get the latest data from the Washington Post Github repo.
+
+```{r setup, message = FALSE}
+library(wapoposh)
+```
+
+## Usage
+
+Get latest data (if newer version is available)
+```{r latest, message = FALSE}
+latest <- latest_data()
+tail(latest, 4)
+```
