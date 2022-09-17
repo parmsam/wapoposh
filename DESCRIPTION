@@ -8,7 +8,8 @@ Description: Provides Washington Post Police Shootings dataset. Data source: Was
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/parmsam/wapoposh
+URL: https://github.com/parmsam/wapoposh,
+    https://parmsam.github.io/wapoposh/
 BugReports: https://github.com/parmsam/wapoposh/issues
 Depends: 
     R (>= 2.10)
