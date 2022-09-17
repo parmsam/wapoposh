@@ -2,7 +2,7 @@
 title: "Get latest data"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{latest_data}
+  %\VignetteIndexEntry{Get latest data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
