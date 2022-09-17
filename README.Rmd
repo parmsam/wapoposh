@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # wapoposh <img src="man/figures/logo.png" align="right" height="139" />
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/parmsam/wapoposh/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/parmsam/wapoposh/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Use R to access **Wa**shington **Po**st **Po**lice **Sh**ootings dataset. Provides convenient functions to spend less time data wrangling and more time generating findings.

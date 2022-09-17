@@ -4,6 +4,8 @@
 # wapoposh <img src="man/figures/logo.png" align="right" height="139" />
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/parmsam/wapoposh/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/parmsam/wapoposh/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Use R to access **Wa**shington **Po**st **Po**lice **Sh**ootings
@@ -77,10 +79,10 @@ tail(latest, 4)
 #> # A tibble: 4 × 17
 #>      id name     date       manne…¹ armed   age gender race  city  state signs…²
 #>   <dbl> <chr>    <date>     <chr>   <chr> <dbl> <chr>  <chr> <chr> <chr> <lgl>  
-#> 1  8342 Tyler C… 2022-08-18 shot    mach…    29 M      <NA>  Sara… FL    FALSE  
-#> 2  8344 Otis Fr… 2022-08-20 shot    Taser    NA M      <NA>  Bay … AL    FALSE  
-#> 3  8345 <NA>     2022-08-20 shot    unde…    NA M      <NA>  Tucs… AZ    FALSE  
-#> 4  8343 <NA>     2022-08-21 shot    vehi…    17 <NA>   <NA>  Gree… NC    FALSE  
+#> 1  8411 <NA>     2022-09-11 shot    tire…    NA M      <NA>  Hous… TX    FALSE  
+#> 2  8414 <NA>     2022-09-11 shot    gun      NA M      <NA>  Los … CA    FALSE  
+#> 3  8420 Igor La… 2022-09-11 shot    gun      53 M      <NA>  Wall… MI    FALSE  
+#> 4  8413 Cody Ki… 2022-09-12 shot    gun      31 M      <NA>  St. … FL    FALSE  
 #> # … with 6 more variables: threat_level <chr>, flee <chr>, body_camera <lgl>,
 #> #   longitude <dbl>, latitude <dbl>, is_geocoding_exact <lgl>, and abbreviated
 #> #   variable names ¹​manner_of_death, ²​signs_of_mental_illness
