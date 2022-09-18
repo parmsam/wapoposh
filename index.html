@@ -97,16 +97,16 @@
 <span><span class="co">#&gt; # A tibble: 4 × 17</span></span>
 <span><span class="co">#&gt;      id name     date       manne…¹ armed   age gender race  city  state signs…²</span></span>
 <span><span class="co">#&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;lgl&gt;  </span></span>
-<span><span class="co">#&gt; 1  8399 &lt;NA&gt;     2022-09-07 shot    gun      NA M      W     Spri… AL    FALSE  </span></span>
-<span><span class="co">#&gt; 2  8401 &lt;NA&gt;     2022-09-07 shot    knife    61 M      B     St. … MO    FALSE  </span></span>
-<span><span class="co">#&gt; 3  8402 Tyler M… 2022-09-07 shot    gun      27 M      &lt;NA&gt;  Wash… TN    FALSE  </span></span>
-<span><span class="co">#&gt; 4  8406 Reginal… 2022-09-07 shot    gun      30 M      &lt;NA&gt;  Colu… GA    FALSE  </span></span>
+<span><span class="co">#&gt; 1  8411 &lt;NA&gt;     2022-09-11 shot    tire…    NA M      &lt;NA&gt;  Hous… TX    FALSE  </span></span>
+<span><span class="co">#&gt; 2  8414 &lt;NA&gt;     2022-09-11 shot    gun      NA M      &lt;NA&gt;  Los … CA    FALSE  </span></span>
+<span><span class="co">#&gt; 3  8420 Igor La… 2022-09-11 shot    gun      53 M      &lt;NA&gt;  Wall… MI    FALSE  </span></span>
+<span><span class="co">#&gt; 4  8413 Cody Ki… 2022-09-12 shot    gun      31 M      &lt;NA&gt;  St. … FL    FALSE  </span></span>
 <span><span class="co">#&gt; # … with 6 more variables: threat_level &lt;chr&gt;, flee &lt;chr&gt;, body_camera &lt;lgl&gt;,</span></span>
 <span><span class="co">#&gt; #   longitude &lt;dbl&gt;, latitude &lt;dbl&gt;, is_geocoding_exact &lt;lgl&gt;, and abbreviated</span></span>
 <span><span class="co">#&gt; #   variable names ¹​manner_of_death, ²​signs_of_mental_illness</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">policeshootings</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Rows: 7,729</span></span>
+<span><span class="co">#&gt; Rows: 7,743</span></span>
 <span><span class="co">#&gt; Columns: 17</span></span>
 <span><span class="co">#&gt; $ id                      &lt;dbl&gt; 3, 4, 5, 8, 9, 11, 13, 15, 16, 17, 19, 21, 22,…</span></span>
 <span><span class="co">#&gt; $ name                    &lt;chr&gt; "Tim Elliot", "Lewis Lee Lembke", "John Paul Q…</span></span>
@@ -129,7 +129,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># get latest data</span></span>
 <span><span class="va">latest</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/latest_data.html">latest_data</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Update available. Returning latest dataset."</span></span>
+<span><span class="co">#&gt; [1] "No update available. Returning existing package dataset."</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">latest</span>, <span class="fl">4</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 4 × 17</span></span>
 <span><span class="co">#&gt;      id name     date       manne…¹ armed   age gender race  city  state signs…²</span></span>
@@ -156,7 +156,7 @@
 <div class="section level3">
 <h3 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a>
 </h3>
-<p>The data was originally published under an Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.</p>
+<p>The dataset was originally and is still published under an <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="external-link">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license</a>. The dataset in the package has been slightly cleaned and provided in an R data file format.</p>
 </div>
 </div>
 <div class="section level2">
@@ -177,7 +177,7 @@
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://creativecommons.org/licenses/by/4.0" class="external-link">CC BY 4.0</a></small></li>
 </ul>
 </div>
 

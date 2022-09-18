@@ -3,7 +3,7 @@ pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   latest_data: latest_data.html
-last_built: 2022-09-17T20:32Z
+last_built: 2022-09-18T07:59Z
 urls:
   reference: https://parmsam.github.io/wapoposh/reference
   article: https://parmsam.github.io/wapoposh/articles
