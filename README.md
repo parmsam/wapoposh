@@ -35,10 +35,10 @@ tail(policeshootings, 4)
 #> # A tibble: 4 × 17
 #>      id name     date       manne…¹ armed   age gender race  city  state signs…²
 #>   <dbl> <chr>    <date>     <chr>   <chr> <dbl> <chr>  <chr> <chr> <chr> <lgl>  
-#> 1  8399 <NA>     2022-09-07 shot    gun      NA M      W     Spri… AL    FALSE  
-#> 2  8401 <NA>     2022-09-07 shot    knife    61 M      B     St. … MO    FALSE  
-#> 3  8402 Tyler M… 2022-09-07 shot    gun      27 M      <NA>  Wash… TN    FALSE  
-#> 4  8406 Reginal… 2022-09-07 shot    gun      30 M      <NA>  Colu… GA    FALSE  
+#> 1  8411 <NA>     2022-09-11 shot    tire…    NA M      <NA>  Hous… TX    FALSE  
+#> 2  8414 <NA>     2022-09-11 shot    gun      NA M      <NA>  Los … CA    FALSE  
+#> 3  8420 Igor La… 2022-09-11 shot    gun      53 M      <NA>  Wall… MI    FALSE  
+#> 4  8413 Cody Ki… 2022-09-12 shot    gun      31 M      <NA>  St. … FL    FALSE  
 #> # … with 6 more variables: threat_level <chr>, flee <chr>, body_camera <lgl>,
 #> #   longitude <dbl>, latitude <dbl>, is_geocoding_exact <lgl>, and abbreviated
 #> #   variable names ¹​manner_of_death, ²​signs_of_mental_illness
@@ -46,7 +46,7 @@ tail(policeshootings, 4)
 
 ``` r
 glimpse(policeshootings)
-#> Rows: 7,729
+#> Rows: 7,743
 #> Columns: 17
 #> $ id                      <dbl> 3, 4, 5, 8, 9, 11, 13, 15, 16, 17, 19, 21, 22,…
 #> $ name                    <chr> "Tim Elliot", "Lewis Lee Lembke", "John Paul Q…
@@ -74,7 +74,7 @@ repo](https://github.com/washingtonpost/data-police-shootings).
 ``` r
 # get latest data
 latest <- latest_data()
-#> [1] "Update available. Returning latest dataset."
+#> [1] "No update available. Returning existing package dataset."
 tail(latest, 4)
 #> # A tibble: 4 × 17
 #>      id name     date       manne…¹ armed   age gender race  city  state signs…²
@@ -111,9 +111,11 @@ icons created by surang - Flaticon</a>
 
 ### Note
 
-The data was originally published under an
-Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
-license.
+The dataset was originally and is still published under an
+[Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA
+4.0) license](https://creativecommons.org/licenses/by-nc-sa/4.0/). The
+dataset in the package has been slightly cleaned and provided in an R
+data file format.
 
 ## Code of Conduct
 
