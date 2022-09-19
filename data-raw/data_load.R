@@ -8,7 +8,7 @@ policeshootings <- readr::read_csv(data_path)
 # data cleaning code here
 policeshootings <- policeshootings %>%
   # ensure consistent case on manner of death field
-  dplyr::mutate(manner_of_death = stringr::str_to_lower(manner_of_death) )
-
+  dplyr::mutate(manner_of_death = stringr::str_to_lower(manner_of_death) ) %>%
+  dplyr::mutate(date = lubridate::ymd(date))
 # usethis::use_data(policeshootings, overwrite = TRUE)
 save(policeshootings, file = "data/policeshootings.rda" )
