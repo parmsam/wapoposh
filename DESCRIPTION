@@ -21,7 +21,8 @@ Imports:
     stringr,
     tibble,
     testthat,
-    rlang
+    rlang,
+    lubridate
 Config/testthat/edition: 3
 Suggests: 
     knitr,
