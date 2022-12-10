@@ -4,13 +4,19 @@
 \alias{latest_data}
 \title{Get latest data from Washington Post Github Repo}
 \usage{
-latest_data()
+latest_data(version = 2)
+}
+\arguments{
+\item{version}{the dataset version number.}
 }
 \value{
 tibble
 }
 \description{
-Checks if new data is available from the Washington Post Github repo and returns the most current dataset.
+Checks if new data is available from the Washington Post Github repo
+and returns the most current dataset. Returns list with police shootings and
+agencies dataframes for version 2. Optionally, the user can also select version
+1 of the dataset.
 }
 \examples{
 latest_data()

@@ -14,6 +14,7 @@ Provides Washington Post Police Shootings dataset. Data source: Washington Post 
 Useful links:
 \itemize{
   \item \url{https://github.com/parmsam/wapoposh}
+  \item \url{https://parmsam.github.io/wapoposh/}
   \item Report bugs at \url{https://github.com/parmsam/wapoposh/issues}
 }
 

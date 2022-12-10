@@ -38,17 +38,17 @@ This is a basic example which shows you how to interact with the dataset:
 library(wapoposh)
 library(dplyr)
 # basic example code
-tail(policeshootings, 4)
+tail(policeshootings_v2, 4)
 ```
 
 ```{r glimpse, message = FALSE}
-glimpse(policeshootings)
+glimpse(policeshootings_v2)
 ```
 
 You can use `latest_data()` to get the latest dataset from the Washington Post [Github repo](https://github.com/washingtonpost/data-police-shootings). 
 ```{r latest, message = FALSE}
 # get latest data
-latest <- latest_data()
+latest <- latest_data()[[1]]
 tail(latest, 4)
 ```
 
