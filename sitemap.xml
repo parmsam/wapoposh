@@ -25,6 +25,9 @@
     <loc>https://parmsam.github.io/wapoposh/index.html</loc>
   </url>
   <url>
+    <loc>https://parmsam.github.io/wapoposh/reference/agencies_v2.html</loc>
+  </url>
+  <url>
     <loc>https://parmsam.github.io/wapoposh/reference/index.html</loc>
   </url>
   <url>
@@ -34,7 +37,10 @@
     <loc>https://parmsam.github.io/wapoposh/reference/pipe.html</loc>
   </url>
   <url>
-    <loc>https://parmsam.github.io/wapoposh/reference/policeshootings.html</loc>
+    <loc>https://parmsam.github.io/wapoposh/reference/policeshootings_v1.html</loc>
+  </url>
+  <url>
+    <loc>https://parmsam.github.io/wapoposh/reference/policeshootings_v2.html</loc>
   </url>
   <url>
     <loc>https://parmsam.github.io/wapoposh/reference/wapoposh-package.html</loc>

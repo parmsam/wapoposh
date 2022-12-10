@@ -76,6 +76,7 @@
 </h1>
 </div>
 <!-- badges: start -->
+
 <p>Use R to access <strong>Wa</strong>shington <strong>Po</strong>st <strong>Po</strong>lice <strong>Sh</strong>ootings dataset. Provides convenient functions to spend less time data wrangling and more time generating findings.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -93,54 +94,59 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/parmsam/wapoposh" class="external-link">wapoposh</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="co"># basic example code</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">policeshootings</span>, <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 4 × 17</span></span>
-<span><span class="co">#&gt;      id name     date       manne…¹ armed   age gender race  city  state signs…²</span></span>
-<span><span class="co">#&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;lgl&gt;  </span></span>
-<span><span class="co">#&gt; 1  8411 &lt;NA&gt;     2022-09-11 shot    tire…    NA M      &lt;NA&gt;  Hous… TX    FALSE  </span></span>
-<span><span class="co">#&gt; 2  8414 &lt;NA&gt;     2022-09-11 shot    gun      NA M      &lt;NA&gt;  Los … CA    FALSE  </span></span>
-<span><span class="co">#&gt; 3  8420 Igor La… 2022-09-11 shot    gun      53 M      &lt;NA&gt;  Wall… MI    FALSE  </span></span>
-<span><span class="co">#&gt; 4  8413 Cody Ki… 2022-09-12 shot    gun      31 M      &lt;NA&gt;  St. … FL    FALSE  </span></span>
-<span><span class="co">#&gt; # … with 6 more variables: threat_level &lt;chr&gt;, flee &lt;chr&gt;, body_camera &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   longitude &lt;dbl&gt;, latitude &lt;dbl&gt;, is_geocoding_exact &lt;lgl&gt;, and abbreviated</span></span>
-<span><span class="co">#&gt; #   variable names ¹​manner_of_death, ²​signs_of_mental_illness</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">policeshootings_v2</span>, <span class="fl">4</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 4 × 19</span></span>
+<span><span class="co">#&gt;      id date       threat_t…¹ flee_…² armed…³ city  county state latit…⁴ longi…⁵</span></span>
+<span><span class="co">#&gt;   &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1  8706 2022-12-02 shoot      not     gun     Sali… Rowan  NC       35.6   -80.4</span></span>
+<span><span class="co">#&gt; 2  8697 2022-12-03 shoot      foot    gun     John… Washi… TN       36.4   -82.4</span></span>
+<span><span class="co">#&gt; 3  8703 2022-12-03 threat     not     knife   Norc… Gwinn… GA       33.9   -84.2</span></span>
+<span><span class="co">#&gt; 4  8702 2022-12-04 &lt;NA&gt;       &lt;NA&gt;    undete… Tucs… Pima   AZ       32.2  -111. </span></span>
+<span><span class="co">#&gt; # … with 9 more variables: location_precision &lt;chr&gt;, name &lt;chr&gt;, age &lt;dbl&gt;,</span></span>
+<span><span class="co">#&gt; #   gender &lt;chr&gt;, race &lt;chr&gt;, race_source &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   was_mental_illness_related &lt;lgl&gt;, body_camera &lt;lgl&gt;, agency_ids &lt;chr&gt;, and</span></span>
+<span><span class="co">#&gt; #   abbreviated variable names ¹​threat_type, ²​flee_status, ³​armed_with,</span></span>
+<span><span class="co">#&gt; #   ⁴​latitude, ⁵​longitude</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">policeshootings</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Rows: 7,743</span></span>
-<span><span class="co">#&gt; Columns: 17</span></span>
-<span><span class="co">#&gt; $ id                      &lt;dbl&gt; 3, 4, 5, 8, 9, 11, 13, 15, 16, 17, 19, 21, 22,…</span></span>
-<span><span class="co">#&gt; $ name                    &lt;chr&gt; "Tim Elliot", "Lewis Lee Lembke", "John Paul Q…</span></span>
-<span><span class="co">#&gt; $ date                    &lt;date&gt; 2015-01-02, 2015-01-02, 2015-01-03, 2015-01-0…</span></span>
-<span><span class="co">#&gt; $ manner_of_death         &lt;chr&gt; "shot", "shot", "shot and tasered", "shot", "s…</span></span>
-<span><span class="co">#&gt; $ armed                   &lt;chr&gt; "gun", "gun", "unarmed", "toy weapon", "nail g…</span></span>
-<span><span class="co">#&gt; $ age                     &lt;dbl&gt; 53, 47, 23, 32, 39, 18, 22, 35, 34, 47, 25, 31…</span></span>
-<span><span class="co">#&gt; $ gender                  &lt;chr&gt; "M", "M", "M", "M", "M", "M", "M", "M", "F", "…</span></span>
-<span><span class="co">#&gt; $ race                    &lt;chr&gt; "A", "W", "H", "W", "H", "W", "H", "W", "W", "…</span></span>
-<span><span class="co">#&gt; $ city                    &lt;chr&gt; "Shelton", "Aloha", "Wichita", "San Francisco"…</span></span>
-<span><span class="co">#&gt; $ state                   &lt;chr&gt; "WA", "OR", "KS", "CA", "CO", "OK", "AZ", "KS"…</span></span>
-<span><span class="co">#&gt; $ signs_of_mental_illness &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE,…</span></span>
-<span><span class="co">#&gt; $ threat_level            &lt;chr&gt; "attack", "attack", "other", "attack", "attack…</span></span>
-<span><span class="co">#&gt; $ flee                    &lt;chr&gt; "Not fleeing", "Not fleeing", "Not fleeing", "…</span></span>
-<span><span class="co">#&gt; $ body_camera             &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALS…</span></span>
-<span><span class="co">#&gt; $ longitude               &lt;dbl&gt; -123.122, -122.892, -97.281, -122.422, -104.69…</span></span>
-<span><span class="co">#&gt; $ latitude                &lt;dbl&gt; 47.247, 45.487, 37.695, 37.763, 40.384, 35.877…</span></span>
-<span><span class="co">#&gt; $ is_geocoding_exact      &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE…</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">policeshootings_v2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 7,999</span></span>
+<span><span class="co">#&gt; Columns: 19</span></span>
+<span><span class="co">#&gt; $ id                         &lt;dbl&gt; 3, 4, 5, 8, 9, 11, 13, 15, 16, 17, 19, 21, …</span></span>
+<span><span class="co">#&gt; $ date                       &lt;date&gt; 2015-01-02, 2015-01-02, 2015-01-03, 2015-0…</span></span>
+<span><span class="co">#&gt; $ threat_type                &lt;chr&gt; "point", "point", "move", "point", "point",…</span></span>
+<span><span class="co">#&gt; $ flee_status                &lt;chr&gt; "not", "not", "not", "not", "not", "not", "…</span></span>
+<span><span class="co">#&gt; $ armed_with                 &lt;chr&gt; "gun", "gun", "unarmed", "replica", "other"…</span></span>
+<span><span class="co">#&gt; $ city                       &lt;chr&gt; "Shelton", "Aloha", "Wichita", "San Francis…</span></span>
+<span><span class="co">#&gt; $ county                     &lt;chr&gt; "Mason", "Washington", "Sedgwick", "San Fra…</span></span>
+<span><span class="co">#&gt; $ state                      &lt;chr&gt; "WA", "OR", "KS", "CA", "CO", "OK", "AZ", "…</span></span>
+<span><span class="co">#&gt; $ latitude                   &lt;dbl&gt; 47.24683, 45.48742, 37.69477, 37.76291, 40.…</span></span>
+<span><span class="co">#&gt; $ longitude                  &lt;dbl&gt; -123.12159, -122.89170, -97.28055, -122.422…</span></span>
+<span><span class="co">#&gt; $ location_precision         &lt;chr&gt; "not_available", "not_available", "not_avai…</span></span>
+<span><span class="co">#&gt; $ name                       &lt;chr&gt; "Tim Elliot", "Lewis Lee Lembke", "John Pau…</span></span>
+<span><span class="co">#&gt; $ age                        &lt;dbl&gt; 53, 47, 23, 32, 39, 18, 22, 35, 34, 47, 25,…</span></span>
+<span><span class="co">#&gt; $ gender                     &lt;chr&gt; "male", "male", "male", "male", "male", "ma…</span></span>
+<span><span class="co">#&gt; $ race                       &lt;chr&gt; "A", "W", "H", "W", "H", "W", "H", "W", "W"…</span></span>
+<span><span class="co">#&gt; $ race_source                &lt;chr&gt; "not_available", "not_available", "not_avai…</span></span>
+<span><span class="co">#&gt; $ was_mental_illness_related &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE, FALSE, FALSE, FAL…</span></span>
+<span><span class="co">#&gt; $ body_camera                &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, F…</span></span>
+<span><span class="co">#&gt; $ agency_ids                 &lt;chr&gt; "73", "70", "238", "196", "473", "101", "19…</span></span></code></pre></div>
 <p>You can use <code><a href="reference/latest_data.html">latest_data()</a></code> to get the latest dataset from the Washington Post <a href="https://github.com/washingtonpost/data-police-shootings" class="external-link">Github repo</a>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># get latest data</span></span>
-<span><span class="va">latest</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/latest_data.html">latest_data</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "No update available. Returning existing package dataset."</span></span>
+<span><span class="va">latest</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/latest_data.html">latest_data</a></span><span class="op">(</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">latest</span>, <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 4 × 17</span></span>
-<span><span class="co">#&gt;      id name     date       manne…¹ armed   age gender race  city  state signs…²</span></span>
-<span><span class="co">#&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;lgl&gt;  </span></span>
-<span><span class="co">#&gt; 1  8411 &lt;NA&gt;     2022-09-11 shot    tire…    NA M      &lt;NA&gt;  Hous… TX    FALSE  </span></span>
-<span><span class="co">#&gt; 2  8414 &lt;NA&gt;     2022-09-11 shot    gun      NA M      &lt;NA&gt;  Los … CA    FALSE  </span></span>
-<span><span class="co">#&gt; 3  8420 Igor La… 2022-09-11 shot    gun      53 M      &lt;NA&gt;  Wall… MI    FALSE  </span></span>
-<span><span class="co">#&gt; 4  8413 Cody Ki… 2022-09-12 shot    gun      31 M      &lt;NA&gt;  St. … FL    FALSE  </span></span>
-<span><span class="co">#&gt; # … with 6 more variables: threat_level &lt;chr&gt;, flee &lt;chr&gt;, body_camera &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   longitude &lt;dbl&gt;, latitude &lt;dbl&gt;, is_geocoding_exact &lt;lgl&gt;, and abbreviated</span></span>
-<span><span class="co">#&gt; #   variable names ¹​manner_of_death, ²​signs_of_mental_illness</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 4 × 19</span></span>
+<span><span class="co">#&gt;      id date       threat_t…¹ flee_…² armed…³ city  county state latit…⁴ longi…⁵</span></span>
+<span><span class="co">#&gt;   &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1  8711 2022-12-05 shoot      foot    gun     Memp… Shelby TN       35.1   -89.9</span></span>
+<span><span class="co">#&gt; 2  8712 2022-12-05 attack     &lt;NA&gt;    blunt_… Seel… Imper… CA       32.8  -116. </span></span>
+<span><span class="co">#&gt; 3  8713 2022-12-06 shoot      &lt;NA&gt;    gun     Wood… Refug… TX       28.2   -97.3</span></span>
+<span><span class="co">#&gt; 4  8714 2022-12-06 flee       foot    undete… Fres… Fresno CA       36.8  -120. </span></span>
+<span><span class="co">#&gt; # … with 9 more variables: location_precision &lt;chr&gt;, name &lt;chr&gt;, age &lt;dbl&gt;,</span></span>
+<span><span class="co">#&gt; #   gender &lt;chr&gt;, race &lt;chr&gt;, race_source &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   was_mental_illness_related &lt;lgl&gt;, body_camera &lt;lgl&gt;, agency_ids &lt;chr&gt;, and</span></span>
+<span><span class="co">#&gt; #   abbreviated variable names ¹​threat_type, ²​flee_status, ³​armed_with,</span></span>
+<span><span class="co">#&gt; #   ⁴​latitude, ⁵​longitude</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="update-frequency">Update Frequency<a class="anchor" aria-label="anchor" href="#update-frequency"></a>

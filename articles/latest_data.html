@@ -84,7 +84,8 @@
 
     
     
-<p>This vignette is meant for those who want to get the latest data from the Washington Post Github repo.</p>
+<p>This vignette is meant for those who want to get the latest data from
+the Washington Post Github repo.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/parmsam/wapoposh" class="external-link">wapoposh</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
@@ -93,18 +94,42 @@
 <p>Get latest data (if newer version is available)</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">latest</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/latest_data.html">latest_data</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "No update available. Returning existing package dataset."</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">latest</span>, <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 17</span></span></span>
-<span><span class="co">#&gt;      id name     date       manne…¹ armed   age gender race  city  state signs…²</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span>  <span style="text-decoration: underline;">8</span>411 <span style="color: #BB0000;">NA</span>       2022-09-11 shot    tire…    <span style="color: #BB0000;">NA</span> M      <span style="color: #BB0000;">NA</span>    Hous… TX    FALSE  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span>  <span style="text-decoration: underline;">8</span>414 <span style="color: #BB0000;">NA</span>       2022-09-11 shot    gun      <span style="color: #BB0000;">NA</span> M      <span style="color: #BB0000;">NA</span>    Los … CA    FALSE  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span>  <span style="text-decoration: underline;">8</span>420 Igor La… 2022-09-11 shot    gun      53 M      <span style="color: #BB0000;">NA</span>    Wall… MI    FALSE  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span>  <span style="text-decoration: underline;">8</span>413 Cody Ki… 2022-09-12 shot    gun      31 M      <span style="color: #BB0000;">NA</span>    St. … FL    FALSE  </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 6 more variables: threat_level &lt;chr&gt;, flee &lt;chr&gt;, body_camera &lt;lgl&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   longitude &lt;dbl&gt;, latitude &lt;dbl&gt;, is_geocoding_exact &lt;lgl&gt;, and abbreviated</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   variable names ¹​manner_of_death, ²​signs_of_mental_illness</span></span></span></code></pre></div>
+<span><span class="co">#&gt; $police_shootings</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 8,004 × 19</span></span></span>
+<span><span class="co">#&gt;       id date       threat_…¹ flee_…² armed…³ city  county state latit…⁴ longi…⁵</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>     3 2015-01-02 point     not     gun     Shel… Mason  WA       47.2  -<span style="color: #BB0000;">123.</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>     4 2015-01-02 point     not     gun     Aloha Washi… OR       45.5  -<span style="color: #BB0000;">123.</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>     5 2015-01-03 move      not     unarmed Wich… Sedgw… KS       37.7   -<span style="color: #BB0000;">97.3</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>     8 2015-01-04 point     not     replica San … San F… CA       37.8  -<span style="color: #BB0000;">122.</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>     9 2015-01-04 point     not     other   Evans Weld   CO       40.4  -<span style="color: #BB0000;">105.</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>    11 2015-01-04 attack    not     gun     Guth… Logan  OK       35.9   -<span style="color: #BB0000;">97.4</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>    13 2015-01-05 shoot     car     gun     Chan… Maric… AZ       33.3  -<span style="color: #BB0000;">112.</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>    15 2015-01-06 point     not     gun     Assa… Saline KS       38.7   -<span style="color: #BB0000;">97.6</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>    16 2015-01-06 accident  not     unarmed Burl… Des M… IA       40.8   -<span style="color: #BB0000;">91.1</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>    17 2015-01-06 point     not     replica Knox… Alleg… PA       40.4   -<span style="color: #BB0000;">80.0</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 7,994 more rows, 9 more variables: location_precision &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   name &lt;chr&gt;, age &lt;dbl&gt;, gender &lt;chr&gt;, race &lt;chr&gt;, race_source &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   was_mental_illness_related &lt;lgl&gt;, body_camera &lt;lgl&gt;, agency_ids &lt;chr&gt;, and</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   abbreviated variable names ¹​threat_type, ²​flee_status, ³​armed_with,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ⁴​latitude, ⁵​longitude</span></span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $agencies</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 3,104 × 6</span></span></span>
+<span><span class="co">#&gt;       id name                                type         state oricodes total…¹</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">3</span>145 Abbeville County Sheriff's Office   sheriff      SC    SC00100        1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">2</span>576 Aberdeen Police Department          local_police WA    WA01401        1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">2</span>114 Abilene Police Department           local_police TX    TX22101        3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">2</span>088 Abington Township Police Department local_police PA    PA04601        1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">3</span>187 Acadia Parish Sheriff's Office      sheriff      LA    LA00100        1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">3</span>375 Acworth Police Department           local_police GA    GA03305        1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">1</span>241 Ada County Sheriff's Office         sheriff      ID    ID00100        2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">1</span>615 Adair County Sheriff's Office       sheriff      OK    OK00100        1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">1</span>978 Adams County Sheriff's Department   sheriff      CO    CO00100       12</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>   897 Adams County Sheriff's Department   sheriff      ID    ID00200        1</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 3,094 more rows, and abbreviated variable name ¹​total_shootings</span></span></span></code></pre></div>
 </div>
   </main>
 </div>
